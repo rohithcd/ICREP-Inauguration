@@ -1,0 +1,322 @@
+﻿<!-- Boiler Plate Code -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Page Metadata-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Curtain</title>
+
+        <!--For Importing Fonts - DM Sans & DM serif -->
+        <!-- <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet" /> -->
+        <!--Font weight 400, 500, 700 only can be used-->
+
+        <!--For Importing Commom styles-->
+        <link rel="stylesheet" href="./style.css"/>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+
+
+            body {
+                overflow: hidden;
+            }
+
+            .rnOuter {
+                background: transparent; /* hsl(0, 80%, 38%); */
+                overflow: hidden;
+                position: relative;
+                height: 100vh;
+              }
+              .rnInner {
+                width: 100%;
+                position: absolute;
+                top: -10%;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                transform-style: preserve-3d;
+                transition: transform 10s ease;
+                transform-origin: -120% top;
+              }
+              .rnUnit {
+                width: 10vw;
+                height: 120vh;
+                background: repeating-linear-gradient(to left, hsl(0, 80%, 50%) 4vw, hsl(0, 80%, 30%) 8vw, hsl(0, 80%, 70%) 10vw);
+                background-size: 100% 100%;
+                display: inline-block;
+                transform-origin: 0 0%;
+                transform: rotate(3deg);
+                -webkit-animation: rnUnit 3s ease infinite;
+                        animation: rnUnit 3s ease infinite;
+              }
+              @-webkit-keyframes rnUnit {
+                50% {
+                  transform: rotate(-2deg);
+                }
+              }
+              @keyframes rnUnit {
+                50% {
+                  transform: rotate(-2deg);
+                }
+              }
+              .rnUnit:nth-child(1) {
+                -webkit-animation-delay: -0.1s;
+                        animation-delay: -0.1s;
+              }
+              .rnUnit:nth-child(2) {
+                -webkit-animation-delay: -0.2s;
+                        animation-delay: -0.2s;
+              }
+              .rnUnit:nth-child(3) {
+                -webkit-animation-delay: -0.3s;
+                        animation-delay: -0.3s;
+              }
+              .rnUnit:nth-child(4) {
+                -webkit-animation-delay: -0.4s;
+                        animation-delay: -0.4s;
+              }
+              .rnUnit:nth-child(5) {
+                -webkit-animation-delay: -0.5s;
+                        animation-delay: -0.5s;
+              }
+              .rnUnit:nth-child(6) {
+                -webkit-animation-delay: -0.6s;
+                        animation-delay: -0.6s;
+              }
+              .rnUnit:nth-child(7) {
+                -webkit-animation-delay: -0.7s;
+                        animation-delay: -0.7s;
+              }
+              .rnUnit:nth-child(8) {
+                -webkit-animation-delay: -0.8s;
+                        animation-delay: -0.8s;
+              }
+              .rnUnit:nth-child(9) {
+                -webkit-animation-delay: -0.9s;
+                        animation-delay: -0.9s;
+              }
+              .rnUnit:nth-child(10) {
+                -webkit-animation-delay: -1s;
+                        animation-delay: -1s;
+              }
+              .aoTable {
+                display: table;
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+              }
+              .aoTableCell {
+                color: hsl(0, 80%, 38%);
+                display: table-cell;
+                vertical-align: middle;
+                transition: color 3s ease;
+              }
+
+              /* .rnOuter:hover .rnInner {
+                transform-origin: -120% top;
+                transform: scaleX(0);
+              }  */
+
+              .rnOuter:hover .aoTableCell {
+                color: white;
+              }
+        </style>
+    </head>
+    <body>
+        <div class="rxWorld">
+
+            <section class="rnOuter ">
+                   
+                <section class="aoTable">
+                    <img width="100%" height="100%" src="./ICREP.png" alt=""/>
+                </section>
+                
+                <div class='rnInner'>
+                    <div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    --><div class='rnUnit'></div><!--
+                    -->
+                </div>
+            </section>
+                
+                 
+            </div>
+        <!--For Importing JS-->
+        <!-- <script src="./confetti.js"></script> -->
+        <script>
+
+            var maxParticleCount = 200; //set max confetti count
+var particleSpeed = 2; //set the particle animation speed
+var startConfetti; //call to start confetti animation
+var stopConfetti; //call to stop adding confetti
+var toggleConfetti; //call to start or stop the confetti animation depending on whether it's already running
+var removeConfetti; //call to stop the confetti animation and remove all confetti immediately
+
+(function() {
+	
+})();
+
+startConfetti = startConfettiInner;
+	stopConfetti = stopConfettiInner;
+	toggleConfetti = toggleConfettiInner;
+	removeConfetti = removeConfettiInner;
+
+    var colors = ["DodgerBlue", "OliveDrab", "Gold", "Pink", "SlateBlue", "LightBlue", "Violet", "PaleGreen", "SteelBlue", "SandyBrown", "Chocolate", "Crimson"]
+var streamingConfetti = false;
+var animationTimer = null;
+var particles = [];
+var waveAngle = 0;
+
+
+	function resetParticle(particle, width, height) {
+		particle.color = colors[(Math.random() * colors.length) | 0];
+		particle.x = Math.random() * width;
+		particle.y = Math.random() * height - height;
+		particle.diameter = Math.random() * 10 + 5;
+		particle.tilt = Math.random() * 10 - 10;
+		particle.tiltAngleIncrement = Math.random() * 0.07 + 0.05;
+		particle.tiltAngle = 0;
+		return particle;
+	}
+
+
+	function stopConfettiInner() {
+		streamingConfetti = false;
+	}
+
+	function removeConfettiInner() {
+		stopConfetti();
+		particles = [];
+	}
+
+	function toggleConfettiInner() {
+		if (streamingConfetti)
+			stopConfettiInner();
+		else
+			startConfettiInner();
+	}
+
+	function drawParticles(context) {
+		var particle;
+		var x;
+		for (var i = 0; i < particles.length; i++) {
+			particle = particles[i];
+			context.beginPath();
+			context.lineWidth = particle.diameter;
+			context.strokeStyle = particle.color;
+			x = particle.x + particle.tilt;
+			context.moveTo(x + particle.diameter / 2, particle.y);
+			context.lineTo(x, particle.y + particle.tilt + particle.diameter / 2);
+			context.stroke();
+		}
+	}
+
+	function updateParticles() {
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		var particle;
+		waveAngle += 0.01;
+		for (var i = 0; i < particles.length; i++) {
+			particle = particles[i];
+			if (!streamingConfetti && particle.y < -15)
+				particle.y = height + 100;
+			else {
+				particle.tiltAngle += particle.tiltAngleIncrement;
+				particle.x += Math.sin(waveAngle);
+				particle.y += (Math.cos(waveAngle) + particle.diameter + particleSpeed) * 0.5;
+				particle.tilt = Math.sin(particle.tiltAngle) * 15;
+			}
+			if (particle.x > width + 20 || particle.x < -20 || particle.y > height) {
+				if (streamingConfetti && particles.length <= maxParticleCount)
+					resetParticle(particle, width, height);
+				else {
+					particles.splice(i, 1);
+					i--;
+				}
+			}
+		}
+	}
+
+
+function startConfettiInner() {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    window.requestAnimFrame = (function() {
+        return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+                return window.setTimeout(callback, 16.6666667);
+            };
+    })();
+    var canvas = document.getElementById("confetti-canvas");
+    if (canvas === null) {
+        canvas = document.createElement("canvas");
+        canvas.setAttribute("id", "confetti-canvas");
+        canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none;position:absolute;background:transparent;top:0;left:0;width:100%;height:100%;");
+        document.body.appendChild(canvas);
+        canvas.width = width;
+        canvas.height = height;
+        window.addEventListener("resize", function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }, true);
+    }
+    var context = canvas.getContext("2d");
+    while (particles.length < maxParticleCount)
+        particles.push(resetParticle({}, width, height));
+    streamingConfetti = true;
+    if (animationTimer === null) {
+        (function runAnimation() {
+            context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            if (particles.length === 0)
+                animationTimer = null;
+            else {
+                updateParticles();
+                drawParticles(context);
+                animationTimer = requestAnimFrame(runAnimation);
+            }
+        })();
+    }
+}
+
+
+let rnOuter = document.getElementsByClassName('rnOuter')[0];
+let rnInner = document.getElementsByClassName('rnInner')[0];
+
+window.addEventListener('keydown', function() {
+        rnInner.style.transformOrigin =  "-120% top";
+        rnInner.style.transform = 'scaleX(0)';
+        
+        setTimeout(function() {
+            startConfetti()
+        }, 2500);
+
+        setTimeout(function() {
+            window.location.href = 'https://articles-app-five.vercel.app/';
+        }, 7000);
+
+});
+
+    
+        </script>
+    </body>
+</html>
